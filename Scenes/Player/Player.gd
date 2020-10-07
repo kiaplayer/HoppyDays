@@ -48,6 +48,7 @@ func hurt():
 	position.y -= 2
 	yield(get_tree(), "idle_frame")
 	motion.y -= JUMP_SPEED
+	get_tree().call_group("GUI", "hurt")
 	$PainSFX.play()
 
 func boost():

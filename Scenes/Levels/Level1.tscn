@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,20 +7,24 @@
 [ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Levels/GameState.gd" type="Script" id=6]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPCs/Spikeman.tscn" type="PackedScene" id=9]
+[ext_resource path="res://NPCs/Cloud.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Items/Portal.tscn" type="PackedScene" id=11]
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -0.000244141, 0 )
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 508.1, 182.502 )
+position = Vector2( 511.243, 188.789 )
 collision_mask = 6
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 131072, 2, 0, 131107, 4, 0, 327686, 2, 0, 327701, 4, 0, 327722, 0, 0, 524300, 0, 0, 655390, 7, 0, 786470, 536870912, 0, 851987, 536870912, 0 )
+tile_data = PoolIntArray( 131072, 2, 0, 131107, 4, 0, 327686, 2, 0, 327701, 4, 0, 327722, 0, 0, 524300, 0, 0, 655390, 7, 0, 786470, 536870912, 0, 851987, 536870912, 0, 852016, 3, 0 )
 
 [node name="Hazards" type="Node" parent="."]
 
@@ -33,10 +37,43 @@ position = Vector2( 1627.82, 293.484 )
 [node name="SpikeTop3" parent="Hazards" instance=ExtResource( 3 )]
 position = Vector2( 2020.71, 613.47 )
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -10.0
-autoplay = true
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2344.81, 62.917 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1522.29, 768.815 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2628.7, 708.967 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1279.82, 765.746 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1216.9, 626.101 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1273.68, 558.58 )
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1223.04, 480.317 )
+
+[node name="Coin8" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1270.61, 412.796 )
+
+[node name="Coin9" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1287.49, 658.326 )
+
+[node name="Coin10" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1361.15, 771.884 )
+
+[node name="Coin11" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1381.1, 653.723 )
+
+[node name="Coin12" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1431.74, 773.419 )
 
 [node name="JumpPads" type="Node" parent="."]
 
@@ -46,4 +83,32 @@ position = Vector2( 1043.65, 506.598 )
 [node name="JumpPad2" parent="JumpPads" instance=ExtResource( 5 )]
 position = Vector2( 2860.27, 281.951 )
 
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true
+
 [node name="GUI" parent="." instance=ExtResource( 7 )]
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Spikeman" parent="NPCs" instance=ExtResource( 9 )]
+position = Vector2( 191.687, 50.5841 )
+
+[node name="Spikeman2" parent="NPCs" instance=ExtResource( 9 )]
+position = Vector2( 2583.34, 687.766 )
+
+[node name="Spikeman3" parent="NPCs" instance=ExtResource( 9 )]
+position = Vector2( 2378.1, 50.2626 )
+
+[node name="Cloud" parent="NPCs" instance=ExtResource( 10 )]
+position = Vector2( 768.947, -358.741 )
+
+[node name="Cloud2" parent="NPCs" instance=ExtResource( 10 )]
+position = Vector2( 1373.85, -178.219 )
+
+[node name="Cloud3" parent="NPCs" instance=ExtResource( 10 )]
+position = Vector2( 2669.18, -327.07 )
+
+[node name="Portal" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3162.14, 721.38 )
